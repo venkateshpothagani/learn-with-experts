@@ -1,0 +1,10 @@
+@media screen and (min-width: 600px) {
+  .page {
+    width: 550px;
+    margin: auto;
+  }
+}
+
+#invalidDetails {
+  text-align: center;
+}

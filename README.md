@@ -1,4 +1,12 @@
-# Getting Started with Create React App
+# LearnWithExperts
+
+* Share your knowledge to like minded people and get knowledge from experts who are enthusiasts to share their knowledge.
+
+* * *
+* * *
+* * *
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
