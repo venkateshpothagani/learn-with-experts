@@ -1,0 +1,25 @@
+.userCard {
+  width: 250px;
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.userCard:hover {
+  box-shadow: 0 0 50px rgba(0, 0, 255, 0.2);
+}
+
+.img {
+  width: 150px;
+  height: 150px;
+  border-radius: 5%;
+}
+
+@media screen and (max-width: 768px) {
+  img {
+    width: 100px;
+    height: 100px;
+    border-radius: 5%;
+  }
+}

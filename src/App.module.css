@@ -1,0 +1,27 @@
+@media screen and (min-width: 768px) {
+  .feed {
+    width: 72%;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .feed {
+    width: 88%;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 384px) {
+  .feed {
+    width: 100%;
+    margin: auto;
+  }
+}
+
+.appDiv {
+  min-height: 100%;
+  max-height: fit-content;
+  display: flex;
+  flex-direction: column;
+}

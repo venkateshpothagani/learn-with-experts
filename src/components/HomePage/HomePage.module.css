@@ -1,0 +1,13 @@
+@media screen and (min-width: 768px) {
+  .feed {
+    width: 64%;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .feed {
+    width: 80%;
+    margin: auto;
+  }
+}
