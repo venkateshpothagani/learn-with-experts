@@ -4,10 +4,12 @@
   border: 1px solid #ccc;
   border-radius: 8px;
   text-align: center;
+  background-color: aliceblue;
 }
 
 .userCard:hover {
-  box-shadow: 0 0 50px rgba(0, 0, 255, 0.2);
+  box-shadow: 0 0 50px rgba(0, 0, 25, 0.2);
+  background-color: rgb(216, 216, 231);
 }
 
 .img {

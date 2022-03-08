@@ -341,7 +341,7 @@ const SignupPage = () => {
         {/* //* Button to submit details and link to LoginPage */}
         <div className="form-group row justify-content-around gap-2 mb-3">
           <button className="btn btn-primary btn-sm col-sm-5" type="submit">
-            <i className="bi bi-box-arrow-in-right px-2"></i>
+            <i class="bi bi-person-plus-fill  px-2"></i>
             Create Account
           </button>
           <div className="btn btn-sm col-sm-6" type="button">

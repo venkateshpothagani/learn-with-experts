@@ -1,72 +1,62 @@
-import styles from "./Header.module.css";
-import logo from "../../../assets/images/logo.png";
-
 const Header = () => {
+  const logoSize = { "font-size": "1.5rem" };
   return (
-    <header class="p-3 bg-dark text-white">
-      <div class="container">
-        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-          <a
-            href="/"
-            class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"
-          >
-            {/* <img
-              src={logo}
-              alt="logo"
-              className={styles.logo}
-              width="40"
-              height="32"
-            /> */}
+    <div>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container container-fluid">
+          <a class="navbar-brand" href="google.com">
+            <i class="bi bi-award-fill" style={logoSize}></i>
           </a>
-
-          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-            <li>
-              <a href="google.com" class="nav-link px-2 text-secondary">
-                Home
-              </a>
-            </li>
-            <li>
-              <a href="google.com" class="nav-link px-2 text-white">
-                Features
-              </a>
-            </li>
-            <li>
-              <a href="google.com" class="nav-link px-2 text-white">
-                Pricing
-              </a>
-            </li>
-            <li>
-              <a href="google.com" class="nav-link px-2 text-white">
-                FAQs
-              </a>
-            </li>
-            <li>
-              <a href="google.com" class="nav-link px-2 text-white">
-                About
-              </a>
-            </li>
-          </ul>
-
-          <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-            <input
-              type="search"
-              class="form-control form-control-dark"
-              placeholder="Search..."
-              aria-label="Search"
-            />
-          </form>
-
-          <div class="text-end">
-            <button type="button" class="btn btn-outline-light me-2">
-              Login
-            </button>
-            <button type="button" class="btn btn-warning">
-              Sign-up
-            </button>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="google.com"
+                >
+                  Home
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="google.com">
+                  Experts
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="google.com">
+                  Ask Query
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="google.com">
+                  About
+                </a>
+              </li>
+            </ul>
+            <div class="d-flex">
+              <button class="btn btn-primary me-2 px-4" type="submit">
+                Login
+              </button>
+              <button class="btn btn-secondary" type="submit">
+                Sign up
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-    </header>
+      </nav>
+    </div>
   );
 };
 
