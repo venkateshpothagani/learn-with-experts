@@ -25,7 +25,7 @@ const HomePage = () => {
     openChat: openChat,
   };
   return (
-    <div>
+    <div className="h-100 m-auto">
       <div className={styles.feed}>
         <div className="row gap-2 justify-content-around">
           <UserCard {...details} />

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import styles from "./SignupPage.module.css";
 
@@ -270,7 +271,7 @@ const SignupPage = () => {
               onChange={handleInputChange}
               name={inputNames.expertizeOption1}
             >
-              <option value="">Option 1</option>
+              <option value="">Select</option>
               {techOptions}
             </select>
           </div>
@@ -281,7 +282,7 @@ const SignupPage = () => {
               onChange={handleInputChange}
               name={inputNames.expertizeOption2}
             >
-              <option value="">Option 2</option>
+              <option value="">Select</option>
               {techOptions}
             </select>
           </div>
@@ -292,7 +293,7 @@ const SignupPage = () => {
               onChange={handleInputChange}
               name={inputNames.expertizeOption3}
             >
-              <option value="">Option 3</option>
+              <option value="">Select</option>
               {techOptions}
             </select>
           </div>
@@ -310,7 +311,7 @@ const SignupPage = () => {
               onChange={handleInputChange}
               name={inputNames.interestedOption1}
             >
-              <option value="">Option 1</option>
+              <option value="">Select</option>
               {techOptions}
             </select>
           </div>
@@ -321,7 +322,7 @@ const SignupPage = () => {
               onChange={handleInputChange}
               name={inputNames.interestedOption2}
             >
-              <option value="">Option 2</option>
+              <option value="">Select</option>
               {techOptions}
             </select>
           </div>
@@ -332,7 +333,7 @@ const SignupPage = () => {
               onChange={handleInputChange}
               name={inputNames.interestedOption3}
             >
-              <option value="">Option 3</option>
+              <option value="">Select</option>
               {techOptions}
             </select>
           </div>
@@ -346,9 +347,9 @@ const SignupPage = () => {
           </button>
           <div className="btn btn-sm col-sm-6" type="button">
             Already have an account?{" "}
-            <a href="https://www.google.com" className="text-underline">
+            <Link to="/login" className="text-underline">
               Login
-            </a>
+            </Link>
           </div>
         </div>
       </form>

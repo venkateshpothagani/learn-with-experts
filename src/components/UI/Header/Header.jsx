@@ -1,14 +1,16 @@
+import { Link } from "react-router-dom";
+
 const Header = () => {
-  const logoSize = { "font-size": "1.5rem" };
+  const logoSize = { fontSize: "1.5rem" };
   return (
-    <div>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container container-fluid">
-          <a class="navbar-brand" href="google.com">
-            <i class="bi bi-award-fill" style={logoSize}></i>
-          </a>
+    <div className="mb-5">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div className="container container-fluid">
+          <Link className="navbar-brand" to="/">
+            <i className="bi bi-award-fill" style={logoSize}></i>
+          </Link>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -16,42 +18,41 @@ const Header = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  aria-current="page"
-                  href="google.com"
-                >
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <Link className="nav-link active" aria-current="page" to="/">
                   Home
-                </a>
+                </Link>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="google.com">
+              <li className="nav-item">
+                <Link className="nav-link" to="/experts">
                   Experts
-                </a>
+                </Link>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="google.com">
+              <li className="nav-item">
+                <Link className="nav-link" to="/ask-query">
                   Ask Query
-                </a>
+                </Link>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="google.com">
+              <li className="nav-item">
+                <Link className="nav-link" to="/about">
                   About
-                </a>
+                </Link>
               </li>
             </ul>
-            <div class="d-flex">
-              <button class="btn btn-primary me-2 px-4" type="submit">
+            <div className="d-flex">
+              <Link className="btn btn-primary me-4 px-4" to="/login">
                 Login
-              </button>
-              <button class="btn btn-secondary" type="submit">
+              </Link>
+              <Link className="btn btn-warning px-4" to="/signup">
                 Sign up
-              </button>
+              </Link>
+              {/* <Link className="nav-link text-white" to={`/profile/${username}`}>
+                <i className="bi bi-person-circle " style={logoSize}></i>
+              </Link> */}
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import styles from "./LoginPage.module.css";
 const LoginPage = () => {
@@ -129,9 +130,9 @@ const LoginPage = () => {
 
           {/* //* Link to reset password */}
           <div className="mt-1">
-            <a href="https://www.google.com" className="link-primary">
+            <Link to={`/forgot-password/${123}`} className="link-primary">
               Forgot Password?
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -144,9 +145,9 @@ const LoginPage = () => {
 
           <div className="btn btn-sm col-sm-7" type="button">
             Don't have an account?{" "}
-            <a href="https://www.google.com" className="text-underline">
+            <Link to="/signup" className="text-underline">
               Sign up
-            </a>
+            </Link>
           </div>
         </div>
       </form>

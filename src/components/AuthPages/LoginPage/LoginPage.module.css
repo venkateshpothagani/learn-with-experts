@@ -5,6 +5,16 @@
   }
 }
 
+.page {
+  height: 100%;
+  padding: 3em;
+  margin-top: 8em;
+  margin-bottom: 8em;
+  background-color: white;
+  border-radius: 1em;
+  box-shadow: 0 0 50px rgba(0, 0, 25, 0.2);
+}
+
 #invalidDetails {
   text-align: center;
 }
