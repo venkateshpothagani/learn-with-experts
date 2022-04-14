@@ -1,9 +1,53 @@
+import UserCard from '../UI/UserCard/UserCard';
+import styles from './ExpertsPage.module.css';
+
 const ExpertsPage = () => {
-  return (
-    <div className="h-100 m-auto">
-      <h1>Experts Page</h1>
-    </div>
-  );
+	return (
+		<div className="h-100 m-auto" id={styles.grid}>
+			<div className={styles.userCard}>
+				<UserCard />
+			</div>
+			<div className={styles.userCard}>
+				<UserCard />
+			</div>
+			<div className={styles.userCard}>
+				<UserCard />
+			</div>
+			<div className={styles.userCard}>
+				<UserCard />
+			</div>
+			<div className={styles.userCard}>
+				<UserCard />
+			</div>
+			<div className={styles.userCard}>
+				<UserCard />
+			</div>
+			<div className={styles.userCard}>
+				<UserCard />
+			</div>
+			<div className={styles.userCard}>
+				<UserCard />
+			</div>
+			<div className={styles.userCard}>
+				<UserCard />
+			</div>
+			<div className={styles.userCard}>
+				<UserCard />
+			</div>
+			<div className={styles.userCard}>
+				<UserCard />
+			</div>
+			<div className={styles.userCard}>
+				<UserCard />
+			</div>
+			<div className={styles.userCard}>
+				<UserCard />
+			</div>
+			<div className={styles.userCard}>
+				<UserCard />
+			</div>
+		</div>
+	);
 };
 
 export default ExpertsPage;

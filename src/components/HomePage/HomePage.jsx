@@ -27,18 +27,6 @@ const HomePage = () => {
   return (
     <div className="h-100 m-auto">
       <div className={styles.feed}>
-        <div className="row gap-2 justify-content-around">
-          <UserCard {...details} />
-          <UserCard {...details} />
-          <UserCard {...details} />
-          <UserCard {...details} />
-          <UserCard {...details} />
-          <UserCard {...details} />
-          <UserCard {...details} />
-          <UserCard {...details} />
-          <UserCard {...details} />
-          <UserCard {...details} />
-        </div>
       </div>
     </div>
   );

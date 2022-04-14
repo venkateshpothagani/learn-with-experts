@@ -25,3 +25,7 @@
   display: flex;
   flex-direction: column;
 }
+
+.addSpace {
+  margin: 1.5rem;
+}

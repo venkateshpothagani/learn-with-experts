@@ -1,47 +1,31 @@
-import styles from "./UserCard.module.css";
+import styles from './UserCard.module.css';
 
 const UserCard = (props) => {
-  const expertize = props.expertize.map((element, index) => (
-    <span key={index} className="badge bg-success col-auto">
-      {element}
-    </span>
-  ));
-  const interested = props.interested.map((element, index) => (
-    <span key={index} className="badge bg-success col-auto">
-      {element}
-    </span>
-  ));
-
-  return (
-    <div className={styles.userCard}>
-      <div className="text-center">
-        <img src={props.dp} alt={props.name} className={styles.img} />
-      </div>
-      <div>
-        <div>
-          <h2 className="text-decoration-underline">{props.name}</h2>
-        </div>
-        <div className="m-2 gap-4">
-          <div>
-            <h6>Expertize Technology</h6>
-            <div className="row justify-content-around gap-1">{expertize}</div>
-          </div>
-          <div>
-            <h6>Interested Technology</h6>
-            <div className="row justify-content-around gap-1">{interested}</div>
-          </div>
-        </div>
-        <div className="d-grid gap-2 mx-auto">
-          <button
-            className="btn btn-secondary btn-sm "
-            onClick={props.openChat}
-          >
-            Chat
-          </button>
-        </div>
-      </div>
-    </div>
-  );
+	return (
+		<div className={styles.container}>
+			<div className="name">
+				<h2>Venkatesh Pothagani</h2>
+				<h4>@venkatesh530</h4>
+			</div>
+			<div className={styles.desc}>Lorem ipsum dolor sit amet, consectetur adipisicing elit.....</div>
+			<div className={styles.tech}>
+				<div className={styles.interested}>
+					<p className={styles.techHeader}>Interested in</p>
+					<p className={styles.techItem}>Tech</p>
+					<p className={styles.techItem}>Tech</p>
+					<p className={styles.techItem}>Tech</p>
+				</div>
+				<div className={styles.expert}>
+					<p className={styles.techHeader}>Expertize in</p>
+					<p className={styles.techItem}>Tech</p>
+					<p className={styles.techItem}>Tech</p>
+					<p className={styles.techItem}>Tech</p>
+				</div>
+			</div>
+			<input id={styles.profile} className="btn btn-secondary" type="button" value="View Profile" />
+			<input id={styles.chat} className="btn btn-primary" type="button" value="Let's Chat" />
+		</div>
+	);
 };
 
 export default UserCard;
