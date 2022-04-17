@@ -11,6 +11,9 @@ import ExpertsPage from './components/ExpertsPage/ExpertsPage';
 import AskQueryPage from './components/AskQueryPage/AskQueryPage';
 import AboutPage from './components/AboutPage/AboutPage';
 import ProfilePage from './components/ProfilePage/ProfilePage';
+import AnswerPage from './components/AnswerPage/AnswerPage';
+import ChatPage from './components/ChatPage/ChatPage';
+import PostAnswerPage from './components/PostAnswerPage/PostAnswerPage';
 import PageNotFound from './components/PageNotFound/PageNotFound';
 
 function App() {
@@ -25,10 +28,13 @@ function App() {
 				<Route path="/experts" element={<ExpertsPage />} />
 				<Route path="/ask-query" element={<AskQueryPage />} />
 				<Route path="/about" element={<AboutPage />} />
+				<Route path="/answers/:id" element={<AnswerPage />} />
+				<Route path="/post-answer/:id" element={<PostAnswerPage />} />
+				<Route path="/chat/:username" element={<ChatPage />} />
 				<Route path="/profile/:username" element={<ProfilePage />} />
 				<Route path="*" element={<PageNotFound />} />
-      </Routes>
-      <div className={styles.addSpace}></div>
+			</Routes>
+			<div className={styles.addSpace}></div>
 			<Footer />
 		</div>
 	);

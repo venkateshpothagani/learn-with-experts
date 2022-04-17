@@ -1,4 +1,5 @@
 import styles from './UserCard.module.css';
+import { Link } from 'react-router-dom';
 
 const UserCard = (props) => {
 	return (
@@ -22,8 +23,14 @@ const UserCard = (props) => {
 					<p className={styles.techItem}>Tech</p>
 				</div>
 			</div>
-			<input id={styles.profile} className="btn btn-secondary" type="button" value="View Profile" />
-			<input id={styles.chat} className="btn btn-primary" type="button" value="Let's Chat" />
+			<div className="d-flex justify-content-between">
+				<Link to="profile/username" id={styles.profile} className="btn btn-secondary">
+					Profile
+				</Link>
+				<Link to="chat/username" id={styles.chat} className="btn btn-primary">
+					Chat
+				</Link>
+			</div>
 		</div>
 	);
 };
