@@ -6,7 +6,7 @@ const QueryCard = (props) => {
 	return (
 		<div className="container box">
 			<div className="row d-flex justify-content-between">
-				<div className="col-sm-2">Venkatesh</div>
+				<div className="col-sm-2">Student</div>
 				<div className="col-sm-2" id={styles.date}>
 					15/23/23
 				</div>

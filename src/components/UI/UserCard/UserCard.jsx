@@ -1,12 +1,12 @@
 import styles from './UserCard.module.css';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 const UserCard = (props) => {
 	return (
 		<div className={styles.container}>
 			<div className="name">
-				<h2>Venkatesh Pothagani</h2>
-				<h4>@venkatesh530</h4>
+				<h2>Student Name</h2>
+				{/* <h4>@student</h4> */}
 			</div>
 			<div className={styles.desc}>Lorem ipsum dolor sit amet, consectetur adipisicing elit.....</div>
 			<div className={styles.tech}>
@@ -23,14 +23,14 @@ const UserCard = (props) => {
 					<p className={styles.techItem}>Tech</p>
 				</div>
 			</div>
-			<div className="d-flex justify-content-between">
+			{/* <div className="d-flex justify-content-between">
 				<Link to="profile/username" id={styles.profile} className="btn btn-secondary">
 					Profile
 				</Link>
 				<Link to="chat/username" id={styles.chat} className="btn btn-primary">
 					Chat
 				</Link>
-			</div>
+			</div> */}
 		</div>
 	);
 };

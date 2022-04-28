@@ -2,7 +2,7 @@ const AnswerCard = (props) => {
 	return (
 		<div className="container">
 			<div className="d-flex justify-content-between mb-3">
-				<span>Venkatesh</span>
+				<span>Student</span>
 				<span>Date</span>
 			</div>
 			<div>

@@ -15,7 +15,6 @@ import AnswerPage from './components/AnswerPage/AnswerPage';
 import ChatPage from './components/ChatPage/ChatPage';
 import PostAnswerPage from './components/PostAnswerPage/PostAnswerPage';
 import PageNotFound from './components/PageNotFound/PageNotFound';
-
 function App() {
 	return (
 		<div className={styles.appDiv}>

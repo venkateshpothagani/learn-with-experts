@@ -1,24 +1,51 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { saveLoginInfo } from '../../../store/features/authSlice';
 import styles from './LoginPage.module.css';
+import { useEffect } from 'react';
 const LoginPage = () => {
 	//* State initiation
 	const initialFormData = Object.freeze({
 		username: '',
 		password: '',
 	});
+
+	const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 	const [formData, setFormData] = useState(initialFormData);
+	const dispatch = useDispatch();
+	const navigation = useNavigate();
+	const login = () => {
+		// const data = JSON.stringify({ username: formData.username, password: formData.password });
+		var data = JSON.stringify({
+			username: 'iamnewuser#001',
+			password: 'mySuperSec@Pwd#123',
+		});
 
-	//Uncomment below code when you want synchronous update of "formData"
-	//with cost of performance. Import useRef and useEffect.
-	//Add attribute ref={prevFormData} to input elements.
-	//Component renders on every key press and updates "formData"
+		var config = {
+			method: 'post',
+			url: 'http://localhost:5000/api/user/login',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			data: data,
+		};
 
-	// const prevFormData = useRef(initialFormData)
-	// useEffect(() => {
-	//   prevFormData.current = formData
-	// }, [formData])
+		axios(config)
+			.then(function (response) {
+				dispatch(saveLoginInfo(response.data.data));
+				console.log(JSON.stringify(response.data));
+				navigation('/');
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
+	};
+	useEffect(() => {
+		if (isFormSubmitted) login();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [isFormSubmitted]);
 
 	//* Update state on every key stroke
 	const handleInputChange = (event) => {
@@ -32,19 +59,33 @@ const LoginPage = () => {
 	const loginFormValidation = (event) => {
 		event.preventDefault();
 
-		let validCredentials = false;
+		setIsFormSubmitted(true);
 
-		if (!validCredentials) {
-			document.getElementById('divAlert').removeAttribute('hidden', 'false');
-		} else {
-			document.getElementById('divAlert').setAttribute('hidden', 'true');
-		}
+		const data = JSON.stringify({ username: formData.username, password: formData.password });
+
+		axios({
+			method: 'post',
+			url: 'http://localhost:5000/api/user/login',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			data: data,
+		}).then((response) => {
+			if (response.status === 200) {
+				console.log(response);
+
+				dispatch(saveLoginInfo(response.data.data));
+				console.log('OK');
+			} else {
+				document.getElementById('divAlert').setAttribute('hidden', 'true');
+			}
+		});
 	};
 
 	return (
 		<div className={styles.page}>
 			{/* //* OAuth Buttons for Github and Google */}
-			<div className="row justify-content-around gap-2">
+			{/* <div className="row justify-content-around gap-2">
 				<button className="btn btn-dark btn-sm col-sm-5" name="github" type="button">
 					<i className="bi-github px-2"></i>
 					GitHub
@@ -63,7 +104,7 @@ const LoginPage = () => {
 				<div className="col">
 					<hr />
 				</div>
-			</div>
+			</div> */}
 
 			{/* //* Shows alert when user submit invalid Credentials */}
 			<div id="divAlert" className="alert alert-warning alert-dismissible fade show" role="alert" hidden>
@@ -105,6 +146,7 @@ const LoginPage = () => {
 						id="current-password"
 						placeholder="Password"
 						onChange={handleInputChange}
+						autoComplete="current-password"
 						// ref={prevFormData}
 						required
 					/>

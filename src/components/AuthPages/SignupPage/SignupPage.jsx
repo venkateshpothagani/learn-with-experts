@@ -129,7 +129,7 @@ const SignupPage = () => {
   return (
     <div className={styles.page}>
       {/* //* OAuth Buttons for Github and Google */}
-      <div className="row justify-content-around gap-2">
+      {/* <div className="row justify-content-around gap-2">
         <button className="btn btn-dark btn-sm col-sm-5" type="button">
           <i className="bi-github px-2"></i>
           GitHub
@@ -148,7 +148,7 @@ const SignupPage = () => {
         <div className="col">
           <hr />
         </div>
-      </div>
+      </div> */}
 
       <form onSubmit={loginFormValidation}>
         {/* //* Input field for user personal name  */}
