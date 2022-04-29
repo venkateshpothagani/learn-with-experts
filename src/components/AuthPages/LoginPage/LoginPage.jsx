@@ -12,16 +12,17 @@ const LoginPage = () => {
 		password: '',
 	});
 
+	const [showErrorMessage, setShowErrorMessage] = useState(false);
 	const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 	const [formData, setFormData] = useState(initialFormData);
 	const dispatch = useDispatch();
 	const navigation = useNavigate();
 	const login = () => {
-		// const data = JSON.stringify({ username: formData.username, password: formData.password });
-		var data = JSON.stringify({
-			username: 'iamnewuser#001',
-			password: 'mySuperSec@Pwd#123',
-		});
+		const data = JSON.stringify({ username: formData.username, password: formData.password });
+		// var data = JSON.stringify({
+		// 	username: 'iamnewuser#001',
+		// 	password: 'mySuperSec@Pwd#123',
+		// });
 
 		var config = {
 			method: 'post',
@@ -32,15 +33,25 @@ const LoginPage = () => {
 			data: data,
 		};
 
-		axios(config)
-			.then(function (response) {
-				dispatch(saveLoginInfo(response.data.data));
-				console.log(JSON.stringify(response.data));
-				navigation('/');
-			})
-			.catch(function (error) {
-				console.log(error);
-			});
+		try {
+			axios(config)
+				.then(function (response) {
+					console.log(response.status);
+					if (response.status === 401) {
+						setShowErrorMessage(true);
+					}
+					if (response.status === 200) {
+						dispatch(saveLoginInfo(response.data.data));
+						console.log(JSON.stringify(response.data));
+						navigation('/');
+					}
+				})
+				.catch(function (error) {
+					setShowErrorMessage(true);
+				});
+		} catch (error) {
+			console.log(error);
+		}
 	};
 	useEffect(() => {
 		if (isFormSubmitted) login();
@@ -63,23 +74,23 @@ const LoginPage = () => {
 
 		const data = JSON.stringify({ username: formData.username, password: formData.password });
 
-		axios({
-			method: 'post',
-			url: 'http://localhost:5000/api/user/login',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			data: data,
-		}).then((response) => {
-			if (response.status === 200) {
-				console.log(response);
+		// axios({
+		// 	method: 'post',
+		// 	url: 'http://localhost:5000/api/user/login',
+		// 	headers: {
+		// 		'Content-Type': 'application/json',
+		// 	},
+		// 	data: data,
+		// }).then((response) => {
+		// 	if (response.status === 200) {
+		// 		console.log(response);
 
-				dispatch(saveLoginInfo(response.data.data));
-				console.log('OK');
-			} else {
-				document.getElementById('divAlert').setAttribute('hidden', 'true');
-			}
-		});
+		// 		dispatch(saveLoginInfo(response.data.data));
+		// 		console.log('OK');
+		// 	} else {
+		// 		document.getElementById('divAlert').setAttribute('hidden', 'true');
+		// 	}
+		// });
 	};
 
 	return (
@@ -105,9 +116,16 @@ const LoginPage = () => {
 					<hr />
 				</div>
 			</div> */}
-
+			<h2 className="text-center mb-4">
+				<u>Welcome back</u>
+			</h2>
 			{/* //* Shows alert when user submit invalid Credentials */}
-			<div id="divAlert" className="alert alert-warning alert-dismissible fade show" role="alert" hidden>
+			<div
+				id="divAlert"
+				className="alert alert-warning alert-dismissible fade show"
+				role="alert"
+				hidden={!showErrorMessage}
+			>
 				<i className="bi bi-exclamation-diamond"></i>
 				<span className="mx-3">Invalid Credentials.</span>
 				<button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>

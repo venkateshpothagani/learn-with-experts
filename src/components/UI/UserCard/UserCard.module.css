@@ -3,16 +3,17 @@
 	padding: 1rem;
 	text-align: center;
 	display: grid;
-	border-radius: 16px;
+	width: 480px;
+	border-radius: 8px;
 	grid-template-columns: repeat(8, 1fr);
 	grid-template-rows: minmax(min-content, max-content);
-
 	box-shadow: 5px 5px 1000px rgb(230, 223, 247) inset;
 }
 
 .container:hover {
 	z-index: 5;
-	box-shadow: 8.0px 16.0px 16.0px hsl(0deg 0% 0% / 0.25);
+	box-shadow: 0 0 5px rgba(0, 0, 2, 0.2);
+	/* box-shadow: 8px 16px 16px hsl(0deg 0% 0% / 0.25); */
 	/* box-shadow: 5px 5px 10px rgb(172, 255, 183); */
 }
 

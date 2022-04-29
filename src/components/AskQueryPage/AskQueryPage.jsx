@@ -1,12 +1,37 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const AskQueryPage = () => {
 	const initialFormData = Object.freeze({
 		query: '',
 		tags: '',
 	});
-
+	const authData = useSelector((state) => state.saveLoginInfo.value);
+	const [isSubmitted, setIsSubmitted] = useState(false);
 	const [formData, setFormData] = useState(initialFormData);
+
+	const navigation = useNavigate();
+
+	useEffect(() => {
+		const data = {
+			type: 'POST',
+			description: formData.query,
+			tags: formData.tags.split(','),
+		};
+		axios
+			.post('http://localhost:5000/api/post', data, {
+				headers: { Authorization: `Bearer ${authData.accessToken}` },
+			})
+			.then((res) => {
+				if (res.status === 201 && isSubmitted) {
+					navigation('/');
+				}
+			});
+
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [isSubmitted]);
 
 	const handleInputChange = (event) => {
 		setFormData({
@@ -17,8 +42,7 @@ const AskQueryPage = () => {
 
 	const validateForm = (event) => {
 		event.preventDefault();
-		console.log(`Description :- ${formData.query}`);
-		console.log(`Description :- ${formData.tags}`);
+		setIsSubmitted(true);
 	};
 
 	return (
